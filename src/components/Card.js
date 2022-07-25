@@ -2,19 +2,15 @@ import React from "react";
 import './styles.css';
 
 function Card({city, temperature, humidity, pressure, updated}) {
-  // let colorOFTemperature;
+  let colorOFTemperature;
 
-  // switch (temperature) {
-  //   case temperature <= 5:
-  //     colorOFTemperature = "color: #69A3FF"
-  //     break;
-  //   case temperature > 5 && temperature <= 25:
-  //     colorOFTemperature = "color: #FF9632";
-  //     break;
-  //   case temperature > 25:
-  //     colorOFTemperature = "color: #ED1946";
-  //     break;
-  // }
+  if (temperature <= 5) {
+    colorOFTemperature = "#69A3FF"
+  } else if (temperature > 5 && temperature <= 25) {
+    colorOFTemperature = "#FF9632";
+  } else {
+    colorOFTemperature = "#ED1946";
+  }
 
   return (
     <div id="card">
@@ -22,7 +18,7 @@ function Card({city, temperature, humidity, pressure, updated}) {
         <span>{city}</span>
       </div>
       <div id="temperature">
-    <span>{temperature}°</span> 
+    <span style={{color: colorOFTemperature}}>{temperature}°</span> 
       </div>
       <div id="footer">
         <div id="humidityPressure">
